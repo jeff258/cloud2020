@@ -1,13 +1,17 @@
 package com.cyb.springcloud;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 
 /**
  * Created by cyb on 2020/4/15 15:16
  */
 @SpringBootApplication
+@MapperScan("com.cyb.springcloud.dao")
+@EntityScan("com.cyb.springcloud.entities")
 public class PamentMain8001 {
     public  static  void  main(String[] args){
 

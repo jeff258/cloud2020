@@ -4,6 +4,8 @@ import com.cyb.springcloud.entities.CommonResult;
 import com.cyb.springcloud.entities.Payment;
 import com.cyb.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -17,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * Created by cyb on 2020/4/15 17:27
  */
 @RestController
-@Slf4j
+
 public class PaymentController
 {
     @Resource
@@ -29,6 +31,8 @@ public class PaymentController
     @Resource
     private DiscoveryClient discoveryClient;
 
+
+    protected Logger log = LoggerFactory.getLogger(getClass());
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment)
     {
