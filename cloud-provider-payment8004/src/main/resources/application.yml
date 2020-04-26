@@ -8,4 +8,4 @@ spring:
   cloud:
     zookeeper:
       # 默认localhost:2181
-      connect-string: localhost:2181
+      connect-string: 192.168.118.130:2181
