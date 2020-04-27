@@ -19,6 +19,7 @@ public class ApplicationContextConfig
     @LoadBalanced
     public RestTemplate getRestTemplate()
     {
+        System.out.println("=====================>>>>>>>>>>>>>>>>>>>>>>>>>>>*************getRestTemplate");
         return new RestTemplate();
     }
 }
