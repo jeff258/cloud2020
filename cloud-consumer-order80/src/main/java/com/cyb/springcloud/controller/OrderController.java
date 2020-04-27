@@ -3,6 +3,7 @@ package com.cyb.springcloud.controller;
 
 import com.cyb.springcloud.entities.CommonResult;
 import com.cyb.springcloud.entities.Payment;
+import com.cyb.springcloud.lb.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -31,8 +32,8 @@ public class OrderController
     @Resource
     private RestTemplate restTemplate;
 
-//    @Resource
-//    private LoadBalancer loadBalancer;
+   @Resource
+   private LoadBalancer loadBalancer;
     @Resource
     private DiscoveryClient discoveryClient;
 
@@ -61,7 +62,7 @@ public class OrderController
         }
     }
 
-   /* @GetMapping(value = "/consumer/payment/lb")
+   @GetMapping(value = "/consumer/payment/lb")
     public String getPaymentLB()
     {
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
@@ -77,7 +78,7 @@ public class OrderController
         return restTemplate.getForObject(uri+"/payment/lb",String.class);
 
     }
-*/
+
     // ====================> zipkin+sleuth
     @GetMapping("/consumer/payment/zipkin")
     public String paymentZipkin()
