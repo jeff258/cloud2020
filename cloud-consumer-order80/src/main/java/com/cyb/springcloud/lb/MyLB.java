@@ -11,12 +11,12 @@ public class MyLB  implements  LoadBalancer {
 
 
 public  final  int getAndIncrement(){
-    int count;
+    int current;
     int next;
      do {
-         count= atomicInteger.get();
-         next=count++;
-     }while ( !atomicInteger.compareAndSet(count,next) ) ;
+         current= this.atomicInteger.get();
+         next = current >= 2147483647 ? 0 : current + 1;
+     }while ( !atomicInteger.compareAndSet(current,next) ) ;
 
 
     return  next ;
