@@ -1,6 +1,7 @@
 package com.cyb.springcloud.controller;
 
 import com.cyb.springcloud.service.PaymentHystrixService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.ribbon.proxy.annotation.Hystrix;
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
 
 @RestController
 @Slf4j
+//@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod")
 public class OrderHystirxController {
     @Resource
     private PaymentHystrixService paymentHystrixService;
@@ -23,7 +25,8 @@ public class OrderHystirxController {
     }
 
     @GetMapping("/consumer/payment/hystrix/timeout/{id}")
-   /* @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod",commandProperties = {
+//    @HystrixCommand
+ /* @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod",commandProperties = {
             @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="1500")
     })*/
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id)
