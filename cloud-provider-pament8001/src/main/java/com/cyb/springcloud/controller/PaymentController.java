@@ -4,6 +4,7 @@ import com.cyb.springcloud.entities.CommonResult;
 import com.cyb.springcloud.entities.Payment;
 import com.cyb.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -95,4 +96,11 @@ public class PaymentController
     {
         return "hi ,i'am paymentzipkin server fall back，welcome to atguigu，O(∩_∩)O哈哈~";
     }
+
+     @Test
+    public  void t(){
+        String a="RECID";
+        a=a.toLowerCase();
+        System.out.print(a);
+}
 }
