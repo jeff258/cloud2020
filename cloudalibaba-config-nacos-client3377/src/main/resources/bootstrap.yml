@@ -1,0 +1,14 @@
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.118.50:1111
+      config:
+        file-extension: yaml
+        server-addr: 192.168.118.50:1111
+  application:
+    name: nacos-config-client
+server:
+  port: 3377
+cloudalibaba-sentinel-service8401
